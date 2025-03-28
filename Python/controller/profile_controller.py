@@ -58,3 +58,7 @@ def get_cover(filename):
         return send_file(file_path)
     else:
         return jsonify({"message": "❌ Không tìm thấy ảnh!"}), 404
+
+@app.route('/idfollowers/<int:id>', methods=['GET'])
+def get_followers(id):
+    return profile_model.getFollowedOrPurchasedProfiles(id)
