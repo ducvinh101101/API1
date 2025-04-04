@@ -1,7 +1,7 @@
 from flask import jsonify
 from sqlalchemy import create_engine, MetaData, Table, select
 from sqlalchemy.exc import SQLAlchemyError
-
+from app import hostlocal
 
 class ProfileModel():
     def __init__(self, engine=None):
@@ -64,7 +64,7 @@ class ProfileModel():
 
     def getUrlAvatar(self, id):
         """Lấy đường dẫn link avata theo id profile"""
-        return f"http://127.0.0.1:5000/avatar_profile/{id}" if id else None
+        return hostlocal+f"/avatar_profile/{id}" if id else None
 
     def getBooks(self):
         """Lấy danh sách các sách và trả về dữ liệu kèm cover_url đầy đủ"""
@@ -77,7 +77,7 @@ class ProfileModel():
                     books = []
                     for row in result:
                         work_id, title, cover_url = row
-                        full_cover_url = f"http://127.0.0.1:5000/covers/{cover_url}" if cover_url else None
+                        full_cover_url = hostlocal+f"/covers/{cover_url}" if cover_url else None
                         books.append({
                             "work_id": work_id,
                             "title": title,
@@ -100,7 +100,7 @@ class ProfileModel():
 
                 if result:
                     work_id, title, cover_url = result
-                    full_cover_url = f"http://127.0.0.1:5000/covers/{cover_url}" if cover_url else None
+                    full_cover_url = hostlocal+f"/covers/{cover_url}" if cover_url else None
 
                     book = {
                         "work_id": work_id,

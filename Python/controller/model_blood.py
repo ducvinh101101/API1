@@ -8,6 +8,7 @@ import os
 from werkzeug.utils import secure_filename
 from app import app
 
+
 yolo_model = YOLO("my_trained_model.pt")
 vgg_model = load_model("hyper_blood_3class.h5")
 
@@ -95,13 +96,14 @@ def process_image(image_path, id, only_yolo=False):
             yolo_labels = ['blood'] * len(boxes)
             # Xử lý tất cả các vùng
             for box in boxes:
+
                 img = process_blood_region(img, box)
         else:
             # Nếu không có confidence > 0.8, xử lý bình thường
             for box, yolo_label in zip(boxes, yolo_labels):
                 if yolo_label in ['blood', 'flood']:
                     vgg_label, vgg_confidence = classify_blood_vgg16(img, box)
-                    if vgg_label == 'blood' and vgg_confidence > 0.8:
+                    if vgg_label == 'blood' and vgg_confidence > 0.7:
                         img = process_blood_region(img, box)
 
 
