@@ -1,7 +1,7 @@
 from flask import jsonify
 from sqlalchemy import create_engine, MetaData, Table, select
 from sqlalchemy.exc import SQLAlchemyError
-from app import hostlocal
+from post_api import hostlocal
 
 class ProfileModel():
     def __init__(self, engine=None):

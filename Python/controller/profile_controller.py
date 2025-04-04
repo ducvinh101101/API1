@@ -1,7 +1,7 @@
 import os
 from sqlalchemy import create_engine
 from werkzeug.security import safe_join
-from app import app
+from post_api import app
 from model.profile_model import ProfileModel
 from flask import request, send_file, jsonify
 

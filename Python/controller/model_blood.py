@@ -6,7 +6,7 @@ from ultralytics import YOLO
 from flask import request, send_file, jsonify
 import os
 from werkzeug.utils import secure_filename
-from app import app
+from post_api import app
 
 
 yolo_model = YOLO("my_trained_model.pt")

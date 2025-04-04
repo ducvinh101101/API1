@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from app import app
+from post_api import app
 from model.user_model import user_model
 from flask import request, send_file
 
