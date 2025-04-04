@@ -9,8 +9,9 @@ from werkzeug.utils import secure_filename
 from post_api import app
 
 
-yolo_model = YOLO("my_trained_model.pt")
-vgg_model = load_model("hyper_blood_3class.h5")
+yolo_model = YOLO("../model/my_trained_model.pt")
+vgg_model = load_model("D:/user/Desktop/Github/Api-for-BookMoth/Python/model/hyper_blood_3class.h5")
+
 
 # Thư mục tạm để lưu file
 UPLOAD_FOLDER = 'uploads'
